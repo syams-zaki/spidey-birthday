@@ -1,0 +1,137 @@
+:root {
+  --spidey-red: #d90429;
+  --spidey-bright-red: #ef233c;
+  --spidey-dark: #1a1a2e;
+  --spidey-blue: #0f4c81;
+  --card-bg: #ffffff;
+  --text-light: #edf2f4;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--spidey-dark);
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  padding: 2.5rem 1rem 1rem;
+}
+
+header h1 {
+  color: var(--spidey-bright-red);
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(239, 35, 60, 0.5);
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.envelope-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--spidey-bright-red);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 20px rgba(217, 4, 41, 0.3);
+}
+
+.instruction {
+  color: #8d99ae;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* ENVELOPE STYLES & ANIMATION */
+.envelope-wrapper {
+  perspective: 1000px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background: var(--spidey-red);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-5px);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid var(--spidey-bright-red);
+  transform-origin: top;
+  transition: transform 0.5s ease 0.2s, z-index 0.2s;
+  z-index: 3;
+}
+
+.pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid var(--spidey-red);
+  border-right: 140px solid var(--spidey-red);
+  border-bottom: 90px solid #b7031d;
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 250px;
+  height: 150px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-sizing: border-box;
+  color: #2b2d42;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.6s ease 0.4s, z-index 0.1s ease 0.4s;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.letter-content h3 {
+  color: var(--spidey-red);
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.letter-content p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* OPEN ENVELOPE STATE */
+.envelope-wrapper.open .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-120px);
+  height: auto;
+  min-height: 200px;
+  z-index: 4;
+}
