@@ -52,6 +52,7 @@ header h1 {
   perspective: 1000px;
   cursor: pointer;
   display: inline-block;
+  margin-top: 1rem;
 }
 
 .envelope {
@@ -121,6 +122,11 @@ header h1 {
 .letter-content p {
   font-size: 0.85rem;
   line-height: 1.4;
+}
+
+.signature {
+  font-weight: bold;
+  color: var(--spidey-blue);
 }
 
 /* OPEN ENVELOPE STATE */

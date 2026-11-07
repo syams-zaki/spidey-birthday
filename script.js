@@ -1,18 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Envelope click interaction
   const envelope = document.getElementById('envelope');
-  const envelopeImg = document.getElementById('envelope-img');
-
-  envelope.addEventListener('click', () => {
-    envelope.classList.toggle('open');
-
-    if (envelope.classList.contains('open')) {
-      envelopeImg.src = 'images/red-envelope-open.png'; // Path to your open envelope image
-    } else {
-      envelopeImg.src = 'images/red-envelope.png';
-    }
-
-  });
+  
+  if (envelope) {
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('open');
+    });
+  }
 
   // Web Shooter Confetti Cannon interaction
   const confettiBtn = document.getElementById('web-shooter-btn');
